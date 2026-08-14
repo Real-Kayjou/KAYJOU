@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Space+Mono:wght@400;700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-void: #0a0908;
+  --color-void-soft: #131110;
+  --color-crimson: #49111c;
+  --color-crimson-bright: #7a1f2e;
+  --color-crimson-glow: #c41e3a;
+  --color-bone: #f2f4f3;
+  --color-bone-dim: #b9b6b4;
+
+  --font-display: 'Syne', system-ui, sans-serif;
+  --font-mono: 'Space Mono', ui-monospace, monospace;
+  --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--color-void);
+  color: var(--color-bone);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+}
+
+#root { min-height: 100svh; }
+
+::selection {
+  background: var(--color-crimson-glow);
+  color: var(--color-bone);
+}
+
+.grain-layer {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  opacity: 0.05;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.glass-card {
+  background: rgba(73, 17, 28, 0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(242, 244, 243, 0.08);
+}
+
+.crimson-glow {
+  filter: drop-shadow(0 0 15px rgba(73, 17, 28, 0.8)) drop-shadow(0 0 30px rgba(196, 30, 58, 0.25));
+}
+
+.text-outline { -webkit-text-stroke: 1px rgba(242, 244, 243, 0.25); }
+
+.tag-eyebrow {
+  font-family: var(--font-mono);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.hide-scrollbar::-webkit-scrollbar { display: none; }
+.hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+.web-line { stroke: rgba(196, 30, 58, 0.35); stroke-width: 1; fill: none; }
